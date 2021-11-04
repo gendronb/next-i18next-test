@@ -25,6 +25,9 @@ export default Id
 
 export const getServerSideProps = async ({ locale }) => {
 
+  const toto = await serverSideTranslations(locale, ['common'])
+  console.debug('toto', toto._nextI18Next.initialI18nStore)
+
   return {
     props: {
       ...await serverSideTranslations(locale, ['common'])
