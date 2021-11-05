@@ -1,14 +1,15 @@
 import { StrictMode } from 'react'
 
-import i18nConfig from '../../next-i18next.config'
-import { appWithTranslation } from 'next-i18next'
+import { NextIntlProvider } from 'next-intl'
 
 const CustomApp = ({ Component, pageProps }) => {
   return (
     <StrictMode>
-      <Component {...pageProps} />
+      <NextIntlProvider messages={pageProps.messages}>
+        <Component {...pageProps} />
+      </NextIntlProvider>
     </StrictMode>
   )
 }
 
-export default appWithTranslation(CustomApp, i18nConfig)
+export default CustomApp

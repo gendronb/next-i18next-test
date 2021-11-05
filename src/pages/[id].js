@@ -1,14 +1,13 @@
 import { useRouter } from 'next/router'
 
-import { useTranslation } from 'react-i18next'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { useTranslations } from 'next-intl'
 
 const Id = () => {
 
   const router = useRouter()
   const { query: { id: pageId } } = router
 
-  const { t } = useTranslation('common')
+  const t = useTranslations()
 
   return (
 
@@ -23,14 +22,18 @@ const Id = () => {
 
 export default Id
 
-export const getServerSideProps = async ({ locale }) => {
+export async function getStaticPaths() {
+  return {
+    paths: [],
+    fallback: 'blocking'
+  }
+}
 
-  const toto = await serverSideTranslations(locale, ['common'])
-  console.debug('toto', toto, toto._nextI18Next.initialI18nStore)
-
+export async function getStaticProps({ locale }) {
+  const messages = await import(`../../locales/${locale}.json`)
   return {
     props: {
-      ...await serverSideTranslations(locale, ['common'])
+      messages: messages.common
     }
   }
 }
