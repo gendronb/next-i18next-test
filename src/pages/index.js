@@ -6,6 +6,8 @@ const Home = () => (
 
   <div>
 
+    <h1>Home</h1>
+
     <ul>
       <li><Link href={'/1'} locale={'fr'}>Page 1 (français)</Link></li>
       <li><Link href={'/2'} locale={'fr'}>Page 2 (français)</Link></li>

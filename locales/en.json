@@ -1,5 +1,5 @@
 {
   "common": {
-    "test": "This is a translatable message"
+    "page": "This is page {page}..."
   }
 }

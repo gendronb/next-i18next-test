@@ -1,5 +1,5 @@
 {
   "common": {
-    "test": "Ceci est un message internationalisable"
+    "page": "Ceci est la page {page}..."
   }
 }

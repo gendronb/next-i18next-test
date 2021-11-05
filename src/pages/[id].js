@@ -12,8 +12,8 @@ const Id = () => {
   return (
 
     <div>
-      <p>Page id = {pageId}</p>
-      <p>{t('test')}</p>
+      <h1>Page {pageId}</h1>
+      <p>{t('page', { page: pageId })}</p>
     </div>
 
   )
